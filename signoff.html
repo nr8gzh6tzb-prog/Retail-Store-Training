@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Sign-off</title><link rel="stylesheet" href="style.css"></head><body>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign-off</title><link rel="stylesheet" href="style.css"></head><body>
 <h1>Training Sign-off</h1>
 <!-- Submissions go to Formspree. Set FORMSPREE_URL in config.js to your endpoint (formspree.io → New form). -->
 <form id="f" method="POST">
@@ -8,5 +8,5 @@
 <p><button class="btn" type="submit">Submit sign-off</button></p>
 </form>
 <script src="config.js"></script><script src="app.js"></script>
-<script>guard(5);const f=document.getElementById("f");f.action=FORMSPREE_URL;f.date.valueAsDate=new Date();</script>
+<script>guard(TOTAL);const f=document.getElementById("f");f.action=FORMSPREE_URL;f.date.valueAsDate=new Date();</script>
 </body></html>

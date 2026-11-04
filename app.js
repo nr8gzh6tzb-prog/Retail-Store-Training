@@ -1,3 +1,5 @@
+// Number of videos = number of entries in VIDEOS (config.js)
+const TOTAL=Object.keys(VIDEOS).length;
 function watched(n){return sessionStorage.getItem("video"+n+"_done")==="1";}
 function markWatched(n){sessionStorage.setItem("video"+n+"_done","1");unlockNext(n);}
 function unlockNext(n){const b=document.getElementById("next");if(b){b.classList.remove("locked");b.removeAttribute("aria-disabled");b.href=b.dataset.href;document.getElementById("status").textContent="✓ Watched — you can continue.";}}
@@ -35,10 +37,10 @@ function renderProgress(){
     bar.innerHTML='<div class="track"><div class="fill"></div></div><span class="label"></span>';
     document.body.appendChild(bar);
   }
-  const done=[1,2,3,4,5].filter(watched).length;
+  const done=Object.keys(VIDEOS).map(Number).filter(watched).length;
   const signed=sessionStorage.getItem("signoff_done")==="1";
-  bar.querySelector(".fill").style.width=(signed?100:done/5*100)+"%";
-  bar.querySelector(".label").textContent=signed?"Training complete":done+" of 5 videos complete";
+  bar.querySelector(".fill").style.width=(signed?100:done/TOTAL*100)+"%";
+  bar.querySelector(".label").textContent=signed?"Training complete":done+" of "+TOTAL+" videos complete";
 }
 document.addEventListener("DOMContentLoaded",renderProgress);
 // Refresh the bar whenever a video is marked watched
