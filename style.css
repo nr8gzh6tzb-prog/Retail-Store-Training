@@ -12,3 +12,5 @@ body{padding-bottom:70px}
 #progress .fill{height:100%;background:#16a34a;transition:width .3s}
 #progress .label{white-space:nowrap}
 .center{text-align:center;min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+/* Back button (grey, sits left of Next) */
+.btn.back{background:#6b7280;margin-right:8px}

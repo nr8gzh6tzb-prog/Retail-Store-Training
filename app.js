@@ -20,7 +20,10 @@ function setupVideo(n){
   const e=toEmbed(url);
   if(e.type==="file"){box.innerHTML='<video controls playsinline preload="metadata" src="'+e.src+'"></video>';const v=box.querySelector("video");v.onended=()=>markWatched(n);
   // NO SKIPPING: remember the furthest point watched; jumping ahead snaps back. Rewinding is allowed.
-  let maxT=0;v.addEventListener("timeupdate",()=>{if(!v.seeking&&v.currentTime>maxT&&v.currentTime-maxT<1.5)maxT=v.currentTime;});
+  // RESUME: the furthest point is saved for this session, so going back to an earlier video and returning picks up where they left off.
+  const key="video"+n+"_pos";let maxT=Number(sessionStorage.getItem(key))||0;
+  v.addEventListener("loadedmetadata",()=>{if(maxT>0&&!watched(n))v.currentTime=maxT;});
+  v.addEventListener("timeupdate",()=>{if(!v.seeking&&v.currentTime>maxT&&v.currentTime-maxT<1.5){maxT=v.currentTime;sessionStorage.setItem(key,maxT);}});
   v.addEventListener("seeking",()=>{if(!watched(n)&&v.currentTime>maxT+0.5)v.currentTime=maxT;});
   v.addEventListener("ratechange",()=>{if(!watched(n)&&v.playbackRate>1)v.playbackRate=1;});v.onerror=()=>{box.innerHTML='<div class="ph">Video file not found or not playable: '+e.src+'</div>';};}
   else if(e.type==="yt"){box.innerHTML='<div id="yt"></div>';window.onYouTubeIframeAPIReady=()=>new YT.Player("yt",{videoId:e.id,events:{onStateChange:s=>{if(s.data===0)markWatched(n);}}});const s=document.createElement("script");s.src="https://www.youtube.com/iframe_api";document.head.appendChild(s);}

@@ -10,7 +10,8 @@ const VIDEOS = {
   3: "closing.mp4", // <!-- PASTE VIDEO 3 LINK HERE -->
   4: "customer-capture.mp4", // <!-- PASTE VIDEO 4 LINK HERE -->
   5: "loyalty.mp4", // <!-- PASTE VIDEO 5 LINK HERE -->
-  6: "recap.mp4"  // <!-- PASTE VIDEO 6 LINK HERE -->
+  6: "recap.mp4", // <!-- PASTE VIDEO 6 LINK HERE -->
+  7: ""  // <!-- PASTE VIDEO 7 LINK HERE --> (e.g. "my-video.mp4")
 };
 
 

@@ -1,9 +1,11 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Video 6</title><link rel="stylesheet" href="style.css"></head><body>
-<h1>Video 6 of 6</h1>
+<h1>Video 6 of 7</h1>
 <!-- PASTE VIDEO 6 LINK HERE: edit VIDEOS[6] in config.js -->
 <div id="player"></div>
 <p id="status">Watch to the end to continue.</p>
-<a id="next" class="btn locked" aria-disabled="true" href="signoff.html">Next →</a>
+<!-- BACK button: earlier videos stay unlocked, so trainees can go back and return -->
+<a class="btn back" href="video5.html">← Back</a>
+<a id="next" class="btn locked" aria-disabled="true" href="video7.html">Next →</a>
 <!-- TEST ONLY button, shown when TEST_MODE = true in config.js -->
 <button id="testbtn" class="btn test" hidden>Mark as watched (TEST ONLY)</button>
 <script src="config.js"></script><script src="app.js"></script><script>setupVideo(6);</script>
