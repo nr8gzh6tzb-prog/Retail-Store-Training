@@ -13,6 +13,8 @@ function toEmbed(u){
 function setupVideo(n){
   guard(n-1);
   const box=document.getElementById("player"),url=VIDEOS[n];
+  // Page heading, e.g. "Video 3 of 7 • Register" (titles live in config.js)
+  const h=document.querySelector("h1");if(h)h.textContent="Video "+n+" of "+TOTAL+(TITLES[n]?" • "+TITLES[n]:"");document.title=h?h.textContent:document.title;
   const next=document.getElementById("next");next.dataset.href=next.getAttribute("href");next.removeAttribute("href");
   if(watched(n))unlockNext(n);
   if(TEST_MODE){const t=document.getElementById("testbtn");t.hidden=false;t.onclick=()=>markWatched(n);}
