@@ -1,7 +1,7 @@
 // ===== SITE CONFIG =====
 // TEST_MODE shows a "Mark as watched (TEST ONLY)" button on each video page.
 // >>> SET TO false (or delete the buttons) BEFORE GOING LIVE <<<
-const TEST_MODE = true;
+const TEST_MODE = false;
 
 // Paste each YouTube/Vimeo/MP4 link below. Leave "" until you have it.
 const VIDEOS = {
